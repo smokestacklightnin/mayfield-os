@@ -1,0 +1,30 @@
+name: Build ISO
+on:
+  workflow_run:
+    workflows: [bluebuild]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  build-iso:
+    name: Build Anaconda ISO
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Build ISO
+        uses: jasonn3/build-container-installer@main
+        with:
+          image_repo: ghcr.io/${{ github.repository_owner }}
+          image_name: mayfiled-os
+          image_tag: stable
+          variant: Kinoite
+
+      - name: Upload ISO as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mayfiled-os-iso
+          path: build/deploy.iso
+          if-no-files-found: error
+          retention-days: 7

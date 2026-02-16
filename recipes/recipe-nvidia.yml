@@ -16,6 +16,8 @@ modules:
     install:
       packages:
         - distrobox
+        - htop
+        - kate
     remove:
       packages:
         - firefox
@@ -28,5 +30,9 @@ modules:
         install:
           - org.mozilla.firefox
       - scope: user
+        install:
+          - us.zoom.Zoom
+          - com.spotify.Client
+          - org.kde.kpat
 
   - type: signing

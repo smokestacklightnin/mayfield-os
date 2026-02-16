@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Mayfiled OS** — a custom Linux desktop image based on Universal Blue Aurora (Fedora Atomic KDE), built using [BlueBuild](https://blue-build.org/). The image is published as an OCI container to GitHub Container Registry (GHCR) via GitHub Actions, and endpoints receive atomic updates by pulling new image versions.
 
+- Repository: https://github.com/smokestacklightnin/mayfield-os
+
 ## Goals
 
 - BlueBuild recipe (`recipe.yml`) defining the base image, packages, and customizations

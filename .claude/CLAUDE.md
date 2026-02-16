@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-**Mayfiled OS** — a custom Linux desktop image based on Universal Blue Aurora (Fedora Atomic KDE), built using [BlueBuild](https://blue-build.org/). The image is published as an OCI container to GitHub Container Registry (GHCR) via GitHub Actions, and endpoints receive atomic updates by pulling new image versions.
+**Mayfiled OS** — a custom Linux desktop image based on Universal Blue Aurora (Fedora Atomic KDE), built using [BlueBuild](https://blue-build.org/). The image is published as an OCI container to GitHub Container Registry (GHCR) via GitHub Actions, and endpoints receive atomic updates via [bootc](https://github.com/containers/bootc) by pulling new image versions.
 
 - Repository: https://github.com/smokestacklightnin/mayfield-os
 
@@ -32,4 +32,5 @@ bluebuild validate recipe.yml
 - Recipe format: [BlueBuild module spec](https://blue-build.org/reference/module/)
 - Registry: GitHub Container Registry (`ghcr.io`)
 - Installer: Anaconda (Fedora default) — handles user account creation
+- Updates: `bootc` pulls new image versions from GHCR and stages them for next boot
 - CI: GitHub Actions using `blue-build/github-action` with `GITHUB_TOKEN` for GHCR auth

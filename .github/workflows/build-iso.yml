@@ -20,7 +20,7 @@ jobs:
           image_name: mayfiled-os
           image_tag: stable
           variant: Kinoite
-          installer_version: "42"
+          version: "42"
 
       - name: Upload ISO as artifact
         uses: actions/upload-artifact@v4

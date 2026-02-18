@@ -35,5 +35,6 @@ modules:
           - us.zoom.Zoom
           - com.spotify.Client
           - org.kde.kpat
+          - com.bitwarden.desktop
 
   - type: signing

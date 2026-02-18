@@ -18,6 +18,7 @@ modules:
         - distrobox
         - htop
         - kate
+        - mullvad-vpn
     remove:
       packages:
         - firefox

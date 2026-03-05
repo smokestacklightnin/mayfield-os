@@ -21,6 +21,7 @@ modules:
         - mullvad-vpn
         - golang
         - rust
+        - nmap
         - emacs
         - bat
     remove:

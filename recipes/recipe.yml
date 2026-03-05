@@ -19,6 +19,10 @@ modules:
         - htop
         - kate
         - mullvad-vpn
+        - golang
+        - rust
+        - emacs
+        - bat
     remove:
       packages:
         - firefox

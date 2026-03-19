@@ -3,8 +3,8 @@
 name: mayfiled-os-nvidia
 description: Mayfiled OS (NVIDIA) - A custom Aurora-based desktop image with NVIDIA drivers.
 
-base-image: ghcr.io/ublue-os/aurora-nvidia
-image-version: stable
+base-image: ghcr.io/ublue-os/aurora-nvidia-open
+image-version: latest
 
 modules:
   - type: files

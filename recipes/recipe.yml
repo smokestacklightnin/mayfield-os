@@ -4,7 +4,7 @@ name: mayfiled-os
 description: Mayfiled OS - A custom Aurora-based desktop image.
 
 base-image: ghcr.io/ublue-os/aurora
-image-version: stable
+image-version: latest
 
 modules:
   - type: files

@@ -28,11 +28,7 @@ modules:
       packages:
         - firefox
         - firefox-langpacks
-  - type: rpm-ostree
-    repos:
-      - @meshtastic/beta
-    install:
-      - meshtasticd
+
   - type: default-flatpaks
     configurations:
       - notify: true

@@ -42,5 +42,6 @@ modules:
           - org.kde.kpat
           - com.bitwarden.desktop
           - com.brave.Browser
+          - org.libreoffice.LibreOffice
 
   - type: signing

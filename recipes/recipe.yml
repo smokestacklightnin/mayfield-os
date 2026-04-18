@@ -24,6 +24,7 @@ modules:
         - nmap
         - emacs
         - bat
+        - qrca
     remove:
       packages:
         - firefox

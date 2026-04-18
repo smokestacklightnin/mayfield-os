@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 
-name: mayfiled-os
-description: Mayfiled OS - A custom Aurora-based desktop image.
+name: mayfield-os
+description: Mayfield OS - A custom Aurora-based desktop image.
 
 base-image: ghcr.io/ublue-os/aurora
 image-version: latest

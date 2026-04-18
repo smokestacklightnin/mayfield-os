@@ -16,8 +16,8 @@ jobs:
       fail-fast: false
       matrix:
         image_name:
-          - mayfiled-os
-          - mayfiled-os-nvidia
+          - mayfield-os
+          - mayfield-os-nvidia
     steps:
       - name: Build ISO
         uses: jasonn3/build-container-installer@main

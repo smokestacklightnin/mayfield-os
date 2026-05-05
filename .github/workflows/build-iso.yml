@@ -20,7 +20,7 @@ jobs:
           - mayfield-os-nvidia
     steps:
       - name: Build ISO
-        uses: jasonn3/build-container-installer@9c889bd
+        uses: jasonn3/build-container-installer@9c889bd0cf7c8fabf375a24e8d113a1212a32413
         with:
           image_repo: ghcr.io/${{ github.repository_owner }}
           image_name: ${{ matrix.image_name }}
@@ -29,7 +29,7 @@ jobs:
           version: "44"
 
       - name: Upload ISO as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ${{ matrix.image_name }}-iso
           path: build/deploy.iso

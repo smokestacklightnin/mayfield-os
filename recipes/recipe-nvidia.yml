@@ -4,7 +4,7 @@ name: mayfield-os-nvidia
 description: Mayfield OS (NVIDIA) - A custom Aurora-based desktop image with NVIDIA drivers.
 
 base-image: ghcr.io/ublue-os/aurora-nvidia-open
-image-version: latest
+image-version: "44"
 
 modules:
   - type: files

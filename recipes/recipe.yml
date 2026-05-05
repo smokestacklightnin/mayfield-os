@@ -4,7 +4,7 @@ name: mayfield-os
 description: Mayfield OS - A custom Aurora-based desktop image.
 
 base-image: ghcr.io/ublue-os/aurora
-image-version: latest
+image-version: "44"
 
 modules:
   - type: files

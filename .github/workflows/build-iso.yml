@@ -5,6 +5,8 @@ on:
     types: [completed]
     branches: [main]
   workflow_dispatch:
+env:
+  FEDORA_VERSION: "44"
 jobs:
   build-iso:
     name: Build Anaconda ISO (${{ matrix.image_name }})
@@ -18,20 +20,35 @@ jobs:
         image_name:
           - mayfield-os
           - mayfield-os-nvidia
+    env:
+      BUILDER_IMAGE: ghcr.io/jasonn3/build-container-installer@sha256:b1792a1f20f3e8c428e273d59d7937d71d93032f3825c2362596421b048dd10d
     steps:
+      - name: Compute ISO filename
+        run: echo "ISO_FILENAME=${{ matrix.image_name }}-fedora-${FEDORA_VERSION}.iso" >> "${GITHUB_ENV}"
+
       - name: Build ISO
-        uses: jasonn3/build-container-installer@9c889bd0cf7c8fabf375a24e8d113a1212a32413
-        with:
-          image_repo: ghcr.io/${{ github.repository_owner }}
-          image_name: ${{ matrix.image_name }}
-          image_tag: latest
-          variant: Kinoite
-          version: "44"
+        run: |
+          mkdir -p "${GITHUB_WORKSPACE}/build"
+          docker run --privileged \
+            --volume "${GITHUB_WORKSPACE}:/github/workspace/" \
+            "${BUILDER_IMAGE}" \
+            ARCH=x86_64 \
+            ENROLLMENT_PASSWORD=container-installer \
+            FLATPAK_REMOTE_NAME=flathub \
+            FLATPAK_REMOTE_URL=https://flathub.org/repo/flathub.flatpakrepo \
+            IMAGE_NAME="${{ matrix.image_name }}" \
+            IMAGE_REPO="ghcr.io/${{ github.repository_owner }}" \
+            IMAGE_SIGNED=true \
+            IMAGE_TAG=latest \
+            ISO_NAME="/github/workspace/build/${ISO_FILENAME}" \
+            VARIANT=Kinoite \
+            VERSION="${FEDORA_VERSION}" \
+            WEB_UI=false
 
       - name: Upload ISO as artifact
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ${{ matrix.image_name }}-iso
-          path: build/deploy.iso
+          path: build/${{ env.ISO_FILENAME }}
           if-no-files-found: error
           retention-days: 7
